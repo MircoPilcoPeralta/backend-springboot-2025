@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
@@ -38,6 +39,12 @@ public class Controller {
 
         return ResponseEntity.status(HttpStatus.CREATED).body(employeeOptional.get());
     }
+
+    @PostMapping("/generate-report")
+    public ResponseEntity<?> sendEmployeesReport(@RequestParam("email") String email) {
+        return ResponseEntity.status(HttpStatus.OK).body("Email enviado exitosamente");
+    }
+
 
     // todo crear una lista páginada de empleados
 

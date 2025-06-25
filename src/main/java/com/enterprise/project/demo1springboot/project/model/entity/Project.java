@@ -8,17 +8,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
 
 import java.util.Date;
 
 @Entity
 @Table(name = "project")
-@Getter
-@Setter
-@NoArgsConstructor
 public class Project {
 
     @Id
