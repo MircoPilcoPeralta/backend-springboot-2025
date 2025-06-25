@@ -39,5 +39,9 @@ public class Controller {
         return ResponseEntity.status(HttpStatus.CREATED).body(employeeOptional.get());
     }
 
+    // todo crear una lista páginada de empleados
+
+
+    // todo crear un buscador de empleados por query params
 
 }
