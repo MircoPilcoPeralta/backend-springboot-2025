@@ -17,6 +17,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Email;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 import java.util.Date;
@@ -24,6 +29,9 @@ import java.util.List;
 
 @Entity
 @Table(name = "employee")
+@Builder
+@Getter
+@Setter
 public class Employee {
 
     @Id
@@ -54,6 +62,21 @@ public class Employee {
     private List<Project> projects;
 
     public Employee() {
+    }
+
+    public Employee(String fullname, String email, Date birthDate) {
+        this.fullname = fullname;
+        this.email = email;
+        this.birthDate = birthDate;
+    }
+
+    public Employee(Long id, String fullname, String email, Date birthDate, Job job, List<Project> projects) {
+        this.id = id;
+        this.fullname = fullname;
+        this.email = email;
+        this.birthDate = birthDate;
+        this.job = job;
+        this.projects = projects;
     }
 
     public Long getId() {

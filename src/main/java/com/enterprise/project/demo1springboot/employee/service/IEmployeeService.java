@@ -17,4 +17,5 @@ public interface IEmployeeService {
 
     Optional<Employee> createOrUpdateEmployee(final Employee employee);
 
+    List<Employee> findAllUsingJPQL();
 }

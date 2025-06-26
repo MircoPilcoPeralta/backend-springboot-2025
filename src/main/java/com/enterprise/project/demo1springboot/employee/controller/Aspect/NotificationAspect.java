@@ -1,4 +1,4 @@
-package com.enterprise.project.demo1springboot.employee.controller;
+package com.enterprise.project.demo1springboot.employee.controller.Aspect;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -17,7 +17,6 @@ public class NotificationAspect {
 
     @Around("execution(* com.enterprise.project.demo1springboot.employee.controller.Controller.sendEmployeesReport(..))")
     public Object handleControllerErrors(ProceedingJoinPoint joinPoint) throws Throwable {
-        logger.error(" Provee el servicio de gmail y funciona correctamente!!!");
         try {
             return joinPoint.proceed();
         } catch (Exception e) {

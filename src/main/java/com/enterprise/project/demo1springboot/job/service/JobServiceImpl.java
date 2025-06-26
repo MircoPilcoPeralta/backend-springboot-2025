@@ -1,5 +1,6 @@
 package com.enterprise.project.demo1springboot.job.service;
 
+import com.enterprise.project.demo1springboot.employee.model.repository.IEmployeeRepo;
 import com.enterprise.project.demo1springboot.job.model.entity.Job;
 import com.enterprise.project.demo1springboot.job.model.repository.IJobRepository;
 import org.springframework.stereotype.Service;
@@ -11,9 +12,11 @@ import java.util.Optional;
 public class JobServiceImpl implements IJobService {
 
     final private IJobRepository iJobRepository;
+    final private IEmployeeRepo iEmployeeRepository;
 
-    public JobServiceImpl(IJobRepository iJobRepository) {
+    public JobServiceImpl(IJobRepository iJobRepository, IEmployeeRepo iEmployeeRepository) {
         this.iJobRepository = iJobRepository;
+        this.iEmployeeRepository = iEmployeeRepository;
     }
 
     @Override
@@ -23,6 +26,8 @@ public class JobServiceImpl implements IJobService {
 
     @Override
     public Optional<Job> createOrUpdateJob(Job job) {
+        iEmployeeRepository.saveAll(job.getEmployees());
+
         return Optional.of(iJobRepository.save(job));
     }
 

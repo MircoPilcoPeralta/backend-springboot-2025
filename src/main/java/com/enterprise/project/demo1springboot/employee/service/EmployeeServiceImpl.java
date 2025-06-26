@@ -37,4 +37,9 @@ public class EmployeeServiceImpl implements IEmployeeService {
         Employee savedEmployee = employeeRepo.save(employee);
         return Optional.of(savedEmployee);
     }
+
+    @Override
+    public List<Employee> findAllUsingJPQL() {
+        return employeeRepo.findAllEmployeesRegistered();
+    }
 }

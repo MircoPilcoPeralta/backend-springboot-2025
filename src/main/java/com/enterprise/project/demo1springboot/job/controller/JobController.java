@@ -41,12 +41,15 @@ public class JobController {
         return ResponseEntity.status(HttpStatus.OK).body(iJobService.findAll());
     }
 
+    // http://localhost:8080/api/job/545
     @GetMapping("{job-id}")
     public ResponseEntity<?> findJobById(@PathVariable("job-id") Long id){
         Optional<Job> foundJobOptional = iJobService.findJobById(id);
 
         if(foundJobOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(
+            return ResponseEntity
+                    .status(HttpStatus.NOT_FOUND)
+                    .body(
                     String.format("No se pudo encontrar el job por id %d", id)
             );
         }
