@@ -26,7 +26,14 @@ public class JobServiceImpl implements IJobService {
 
     @Override
     public Optional<Job> createOrUpdateJob(Job job) {
-        iEmployeeRepository.saveAll(job.getEmployees());
+
+        if(job.getEmployees() != null) {
+            job.getEmployees().forEach(
+                    employee -> {
+                        employee.setJob(job);
+                    }
+            );
+        }
 
         return Optional.of(iJobRepository.save(job));
     }

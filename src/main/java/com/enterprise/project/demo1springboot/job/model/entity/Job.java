@@ -2,6 +2,7 @@ package com.enterprise.project.demo1springboot.job.model.entity;
 
 import com.enterprise.project.demo1springboot.department.model.entity.Departament;
 import com.enterprise.project.demo1springboot.employee.model.entity.Employee;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -35,7 +36,8 @@ public class Job {
     @JoinColumn(name = "id_departament")
     private Departament department;
 
-    @OneToMany(mappedBy = "job")
+    @OneToMany(mappedBy = "job", cascade = CascadeType.ALL, targetEntity = Employee.class, orphanRemoval = true)
+
     private List<Employee> employees;
 
     public Job() {

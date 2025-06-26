@@ -3,6 +3,7 @@ package com.enterprise.project.demo1springboot.employee.model.entity;
 import com.enterprise.project.demo1springboot.job.model.entity.Job;
 import com.enterprise.project.demo1springboot.project.model.entity.Project;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -47,7 +48,7 @@ public class Employee {
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_job")
     @JsonIgnore
     private Job job;
