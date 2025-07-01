@@ -1,4 +1,4 @@
-package com.enterprise.project.demo1springboot.auth.controller.filter;
+package com.enterprise.project.demo1springboot.auth.controller;
 
 import com.enterprise.project.demo1springboot.auth.model.request.LoginRequest;
 import com.enterprise.project.demo1springboot.auth.model.request.RegisterRequest;
