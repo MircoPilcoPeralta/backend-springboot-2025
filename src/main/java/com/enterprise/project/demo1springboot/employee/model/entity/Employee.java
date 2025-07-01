@@ -48,7 +48,7 @@ public class Employee {
     @Temporal(TemporalType.DATE)
     private Date birthDate;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "id_job")
     @JsonIgnore
     private Job job;
